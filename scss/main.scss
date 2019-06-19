@@ -1,4 +1,78 @@
-$primary-color: #ffbf60;
-body{
-    background-color: $primary-color;
+@import 'config';
+
+* {
+  box-sizing: border-box;
+}
+body {
+  @include background;
+  background: $primary-color;
+  color: $third-color;
+  height: 100%;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+}
+
+//heading
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 500;
+
+  &.lg-heading {
+    font-size: 6rem;
+  }
+
+  &.sm-heading {
+    margin-bottom: 2rem;
+    padding: 0.2rem 1rem;
+    background: rgba(lighten($primary-color, 2), 0.5);
+  }
+}
+// Icons For Facebook, Here is the icon color
+a {
+  color: $third-color;
+  text-decoration: none;
+}
+
+// This is the menu icon, which will be fixed any change in window size
+header {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+}
+
+//This is for my last name color change
+.text-secondary {
+  color: $secondary-color;
+}
+
+main {
+  padding: 4rem;
+  height: 100%;
+
+  .icons {
+    margin-top: 1rem;
+    // each icon is wraped in <a><a> tag
+    a {
+      padding: 0.4rem;
+
+      &:hover {
+        color: $secondary-color;
+        @include easeOut()
+          // have to type @include if you want the function to show up;;
+      }
+    }
+  }
+  &#home {
+    // no scroll bars on the side
+    overflow: hidden;
+
+    h1 {
+      // vh = viewport for horizantal is like 100 slice across and take away 20 slices
+      margin-top: 20vh;
+    }
+  }
 }
